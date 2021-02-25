@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Alexey">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Авторизация</title>
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link  href= "{{ url_for('static', filename='css/log_page.css') }}" rel= "stylesheet" >
+      </style>
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand ">Autoservice</span>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-3 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">О компании <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Главная страница</h1>
+        <p>Основная информация о компании. Для записи нужно зарегистрироваться.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-4">
+                <main class="login">
+                    <form action="/login" method="POST">
+                        <h1 class="h2   fw-normal text-left">Авторизация</h1>
+                        <label for="inputEmail" class="visually-hidden">Email</label>
+                        <input type="email"  id = "inputEmail" class = "form-control" name="email">
+                        <label for="password" class="visually-hidden">Пароль:</label>
+                        <input type="password"   class = "form-control" id="password" name="password">
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button><br>
+                    </form>
+                </main>
+            </div>
+
+            <div class="col-6 col-md-6">
+                <div class="regform">
+                    <h2>Не зарегистрированы?</h2>
+                    <p>Зарегистрируйтесь, чтобы иметь возможность записаться на ремонт </p>
+                    <hr color="black">
+                    <div class = "reg">
+                        <a href="{{url_for('reg')}}" class="w-10  btn btn-lg btn-primary" role="button" aria-pressed="true">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="flashes">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+
+</body>
+</html>
+
+
